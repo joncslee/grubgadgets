@@ -1,0 +1,77 @@
+
+
+      <div class="row">
+
+  <!-- Side Bar -->
+
+        <div class="four mobile-four columns">
+
+          <img src="http://placehold.it/500x500&text=Logo">
+
+          <div class="hide-for-small panel">
+            <h3>Header</h3>
+            <h5 class="subheader">Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis.
+            </h5>
+          </div>
+
+          <a href="#">
+          <div class="panel callout radius">
+            <h6>99&nbsp; items in your cart</h6>
+          </div>
+          </a>
+
+        </div>
+
+    <!-- End Side Bar -->
+
+
+    <!-- Thumbnails -->
+
+        <div class="eight columns">
+          <div class="row">
+
+            <% @products.each do |product| %>
+
+              <div class="four mobile-two columns">
+                <img src="<%= product.image_url %>">
+
+                <div class="panel">
+                  <h5><%= product.name %></h5>
+                  <h6 class="subheader">$<%= product.price %></h6>
+                </div>
+              </div>
+
+            <% end %>
+
+          </div>
+
+    <!-- End Thumbnails -->
+
+
+    <!-- Managed By -->
+          <div class="row">
+            <div class="twelve columns">
+              <div class="panel">
+                <div class="row">
+
+                  <div class="two mobile-two columns">
+                    <img src="http://placehold.it/300x300&text=Site Owner">
+                  </div>
+
+                  <div class="ten mobile-two columns">
+                    <strong>This Site Is Managed By<hr/></strong>
+
+                    Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+    <!-- End Managed By -->
+
+          </div>
+        </div>
+      </div>
+
+
