@@ -1,2 +1,12 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<div class="row">
+  <div class="twelve columns">
+    <%= @product.name %><br /><br />
+
+    Price: <%= @product_data[:list_price] %><br /><br />
+    Brand: <%= @product_data[:brand] %><br /><br />
+    Color: <%= @product_data[:color] %><br /><br />
+    Size: <%= @product_data[:size] %><br /><br />
+    Warranty: <%= @product_data[:warranty] %><br /><br />
+    Description: <%= @product_data[:description] %><br /><br />
+  </div>
+</div>

@@ -19,7 +19,7 @@
                 <img src="<%= product.image_url %>">
 
                 <div class="panel">
-                  <h5><%= product.name %></h5>
+                  <h5><%= link_to product.name, product %></h5>
                   <h6 class="subheader">$<%= product.price %></h6>
                 </div>
               </div>

@@ -1,7 +1,6 @@
 Grubgadgets::Application.routes.draw do
-  get "products/index"
 
-  get "products/show"
+  resources :products, :only => [:index, :show]
 
   ActiveAdmin.routes(self)
 

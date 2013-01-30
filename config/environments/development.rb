@@ -34,4 +34,10 @@ Grubgadgets::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  Amazon::Ecs.options = {
+    :associate_tag => 'grubg-20',
+    :AWS_access_key_id => 'AKIAJNFWYHUBM55U23AQ',       
+    :AWS_secret_key => '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'
+  }
 end
