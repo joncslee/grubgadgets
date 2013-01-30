@@ -1,6 +1,39 @@
 class Product < ActiveRecord::Base
   attr_accessible :amazon_description, :description, :name, :price, :url, :image_url, :asin
 
+  before_save :fetch_details_from_amazon
+  
+  def fetch_details_from_amazon
+    data = fetch(asin).first_item
+
+    # convert response to nokogiri object
+    doc = Nokogiri.XML(data.to_s) do |config|
+      config.default_xml.noblanks
+    end
+
+    item_attributes = doc.xpath('/Item/ItemAttributes')
+    editorial_reviews = doc.xpath('/Item/EditorialReviews')
+
+    features = []
+    item_attributes.xpath('Feature').each do |feature|
+      features << feature.text
+    end
+
+    # use xpath selectors to extract relevant data 
+    # into usable hash
+    @product_data = {
+      :list_price => item_attributes.xpath('ListPrice/FormattedPrice').text,
+      :brand => item_attributes.xpath('Brand').text,
+      :color => item_attributes.xpath('Color').text,
+      :size => item_attributes.xpath('Size').text,
+      :warranty => item_attributes.xpath('Warranty').text,
+      # figure out how to extract ONLY the product description (not amazon description)
+      :description => editorial_reviews.xpath('EditorialReview[1]/Content').text,
+      :features => features
+    }
+
+  end
+
   def self.fetch(asin)
 
     # method: curate and collect ASIN,

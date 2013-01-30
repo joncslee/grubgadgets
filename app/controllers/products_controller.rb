@@ -17,6 +17,11 @@ class ProductsController < ApplicationController
     item_attributes = doc.xpath('/Item/ItemAttributes')
     editorial_reviews = doc.xpath('/Item/EditorialReviews')
 
+    features = []
+    item_attributes.xpath('Feature').each do |feature|
+      features << feature.text
+    end
+
     # use xpath selectors to extract relevant data 
     # into usable hash
     @product_data = {
@@ -25,9 +30,12 @@ class ProductsController < ApplicationController
       :color => item_attributes.xpath('Color').text,
       :size => item_attributes.xpath('Size').text,
       :warranty => item_attributes.xpath('Warranty').text,
-      :description => editorial_reviews.xpath('EditorialReview/Content').text
+      # figure out how to extract ONLY the product description (not amazon description)
+      :description => editorial_reviews.xpath('EditorialReview[1]/Content').text,
+      :features => features
     }
 
   end
+
 
 end

@@ -8,5 +8,11 @@
     Size: <%= @product_data[:size] %><br /><br />
     Warranty: <%= @product_data[:warranty] %><br /><br />
     Description: <%= @product_data[:description] %><br /><br />
+    Features: <br />
+    <ul>
+      <% @product_data[:features].each do |feature| %>
+        <li><%= feature %></li>
+      <% end %>
+    </ul>
   </div>
 </div>
