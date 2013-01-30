@@ -32,5 +32,4 @@ ActiveAdmin.register_page "Dashboard" do
   end # content
 end
 
-ActiveAdmin.register Product
 
