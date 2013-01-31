@@ -1,17 +1,21 @@
 <div class="row">
   <div class="twelve columns">
+
+    <%= image_tag @product.photo.url, :style => 'width: 300px;' %><br />
+
     <%= @product.name %><br /><br />
 
-    Price: <%= @product_data[:list_price] %><br /><br />
-    Brand: <%= @product_data[:brand] %><br /><br />
-    Color: <%= @product_data[:color] %><br /><br />
-    Size: <%= @product_data[:size] %><br /><br />
-    Warranty: <%= @product_data[:warranty] %><br /><br />
-    Description: <%= @product_data[:description] %><br /><br />
+    List Price: <%= @product.list_price %><br /><br />
+    Price: <%= @product.price %><br /><br />
+    Brand: <%= @product.brand %><br /><br />
+    Color: <%= @product.color %><br /><br />
+    Size: <%= @product.size %><br /><br />
+    Warranty: <%= @product.warranty %><br /><br />
+    Description: <%= @product.description %><br /><br />
     Features: <br />
     <ul>
-      <% @product_data[:features].each do |feature| %>
-        <li><%= feature %></li>
+      <% @product.features.each do |feature| %>
+        <li><%= feature.content %></li>
       <% end %>
     </ul>
   </div>

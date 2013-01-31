@@ -52,6 +52,7 @@ GEM
       thor
     builder (3.0.4)
     chunky_png (1.2.7)
+    cocaine (0.4.2)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -109,6 +110,12 @@ GEM
     mysql2 (0.3.11)
     nokogiri (1.5.6)
     orm_adapter (0.0.7)
+    paperclip (3.4.0)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.4.0)
+      mime-types
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
@@ -179,6 +186,7 @@ DEPENDENCIES
   compass-rails
   jquery-rails
   mysql2
+  paperclip (~> 3.0)
   rails (= 3.2.11)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)

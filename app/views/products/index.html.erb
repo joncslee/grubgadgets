@@ -15,8 +15,8 @@
 
             <% @products.each do |product| %>
 
-              <div class="three mobile-two columns">
-                <img src="<%= product.image_url %>">
+              <div class="two mobile-two columns">
+                <img src="<%= product.photo.url %>">
 
                 <div class="panel">
                   <h5><%= link_to product.name, product %></h5>
